@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', '\App\Http\Controllers\HomeController@index')->name('home');
+    Route::get('/h', '\App\Http\Controllers\HomeController@index')->name('home');
 
     Route::get('/folders/create', '\App\Http\Controllers\FolderController@showCreateForm')->name('folders.create');
     Route::post('/folders/create', '\App\Http\Controllers\FolderController@create');
